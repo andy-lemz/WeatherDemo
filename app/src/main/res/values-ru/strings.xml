@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">Weather Demo</string>
+    <string name="today_is">Сегодня</string>
+    <string name="in_other_days">В остальные дни:</string>
+    <string name="ChooseCity">Выберете ваш город</string>
+    <string name="celsiusDegree">Градусы цельсия</string>
+    <string name="darkTheme">Тёмная тема</string>
+    <string name="settingsTitle">Настройки</string>
+</resources>
