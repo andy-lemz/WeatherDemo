@@ -2,4 +2,8 @@
     <string name="app_name">Weather Demo</string>
     <string name="today_is">Today is</string>
     <string name="in_other_days">In other days:</string>
+    <string name="ChooseCity">Choose you city</string>
+    <string name="celsiusDegree">Celsius degree</string>
+    <string name="darkTheme">Dark theme</string>
+    <string name="settingsTitle">Settings</string>
 </resources>
