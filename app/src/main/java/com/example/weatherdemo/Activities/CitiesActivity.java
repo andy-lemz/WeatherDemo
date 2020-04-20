@@ -1,34 +1,45 @@
 package com.example.weatherdemo.Activities;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.ListFragment;
+import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.weatherdemo.Cities;
+import com.example.weatherdemo.R;
 
-public class CitiesActivity extends ListFragment {
+public class CitiesActivity extends AppCompatActivity {
     @Override
-    public void onActivityCreated(Bundle savedInstanceState) {
+    public void onCreate(Bundle savedInstanceState) {
 
-        super.onActivityCreated(savedInstanceState);
+        super.onCreate(savedInstanceState);
 
-        ListAdapter adapter = new ArrayAdapter<>(getActivity(),
+        setContentView(R.layout.choose_city);
+
+        ListView list = findViewById(R.id.list);
+        ArrayAdapter adapter = new ArrayAdapter<>(getApplicationContext(),
                 android.R.layout.simple_list_item_1, Cities.GetNameAllRegions());
-        setListAdapter(adapter);
+        list.setAdapter(adapter);
+        list.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                TextView textView = (TextView) view;
+                String itemText = textView.getText().toString();
+
+                if (!itemText.isEmpty()){
+                Intent intent = new Intent(getApplicationContext(), MainActivity.class);
+                intent.putExtra("CityLocalizedName", itemText);
+                startActivity(intent);
+                }
+            }
+        });
 
     }
 
-    public void onListItemClick(ListView l, View v, int position, long id) {
-        super.onListItemClick(l, v, position, id);
-
-        TextView textView = (TextView) v;
-        String itemText = textView.getText().toString();
-
-        Toast.makeText(getActivity(), "Вы выбрали " + itemText, Toast.LENGTH_SHORT).show();
-    }
 }

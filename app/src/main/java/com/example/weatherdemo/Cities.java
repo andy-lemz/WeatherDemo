@@ -39,4 +39,9 @@ public class Cities extends ListFragment {
         return arr;
     }
 
+    public String GetIDByLocalizedName(String LocalizedName){
+
+        return ID;
+    }
+
 }
